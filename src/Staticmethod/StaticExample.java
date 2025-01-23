@@ -6,7 +6,8 @@ public class StaticExample {
         Scanner s=new Scanner(System.in);
         ArrayList<Person> persons=new ArrayList<>();
         ArrayList<Integer> PerAge=new ArrayList<>();
-
+        Male m=new Male("pirai",19);
+        Male.hello();
         for(int i=0;i<3;i++){
             Pname.add(s.nextLine());
             PerAge.add(s.nextInt());
@@ -27,12 +28,16 @@ class Person{
 
     private final String name;
     private final int age;
-
+    private static String address;
     public Person(String name,int age){
         this.name=name;
         this.age=age;
 
 
+    }
+    static{
+        address="chennai";
+        System.out.println(address);
     }
     String getName(){
         return this.name;
@@ -40,4 +45,18 @@ class Person{
     int getAge(){
         return this.age;
     }
+    static void hello(){
+        System.out.println("this is the parent static method");
+    }
+}
+class Male extends Person{
+
+    public Male(String name, int age) {
+        super(name, age);
+    }
+
+    static void hello(){
+        System.out.println("this is the child static method which is inheritance");
+    }
+
 }

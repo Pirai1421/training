@@ -36,4 +36,5 @@ public class ComparableExample {
         }
     }
 }
+record Alien(int id){ }
 
