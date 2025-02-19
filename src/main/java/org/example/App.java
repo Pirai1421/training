@@ -49,10 +49,10 @@ public class App {
         Session newSession = HibernateUtil.getSessionFactory().openSession();
         try {
 
-//            List<Employee> employees = newSession.createQuery("FROM Employee", Employee.class).list();
-//            for (Employee employee : employees) {
-//                System.out.println(employee);
-//            }
+            List<Employee> employees = newSession.createQuery("FROM Employee", Employee.class).list();
+            for (Employee employee : employees) {
+                System.out.println(employee);
+            }
             System.out.println("enter the employee id to view");
             int tempId=s.nextInt();
             Query<Employee> query = newSession.createQuery("FROM Employee WHERE eid = :id", Employee.class);
