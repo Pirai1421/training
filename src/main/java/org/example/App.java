@@ -132,6 +132,7 @@ public class App {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction transaction = null;
         try {
+
             transaction = session.beginTransaction();
             Employee employee = session.get(Employee.class, id);
             if (employee != null) {
@@ -148,7 +149,6 @@ public class App {
                 employee.setPnum(pnum);
                 employee.setAddress(address);
                 employee.setEmail(email);
-
                 session.update(employee);
                 transaction.commit();
                 System.out.println("Employee updated successfully.");
